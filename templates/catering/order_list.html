@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>
+    Order List
+    <a href="{% url 'catering_app:order_create' %}" class="btn btn-primary link-to-page">
+      Add order
+    </a>
+  </h1>
+
+  {% if order_list %}
+    <table class="table">
+      <tr>
+        <th>Client</th>
+        <th>Menu</th>
+        <th>Num of people</th>
+        <th>Order Date</th>
+        <th>Total Price</th>
+      </tr>
+      {% for order in order_list %}
+        <tr>
+          <td>
+            {{ order.client.client_name }}
+          </td>
+          <td>
+            {{ order.order_menu.menu_name }}
+          </td>
+          <td>
+            {{ order.num_people }}
+          </td>
+          <td>
+            {{ order.order_date }}
+          </td>
+          <td>
+            {{ order.total_price|floatformat:2 }}$
+          </td>
+        </tr>
+      {% endfor %}
+    </table>
+  {% else %}
+    <p>There are no orders in the service.</p>
+  {% endif %}
+{% endblock %}
