@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>
+    Menu List
+    <a href="{% url 'catering_app:menu_create' %}" class="btn btn-primary link-to-page">
+      Create Position
+    </a>
+  </h1>
+
+  {% if menu_list %}
+    <table class="table">
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+      </tr>
+      {% for menu in menu_list %}
+        <tr>
+          <td>
+            {{ menu.id }}
+          </td>
+          <td>
+            <a href="{% url "catering_app:menu_detail" pk=menu.id %}" >
+              {{ menu.menu_name }}
+            </a>
+          </td>
+        </tr>
+      {% endfor %}
+    </table>
+  {% else %}
+    <p>There are no menus in the service.</p>
+  {% endif %}
+{% endblock %}

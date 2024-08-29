@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>
+    Client List
+    <a href="{% url 'catering_app:client_create' %}" class="btn btn-primary link-to-page">
+      Add client
+    </a>
+  </h1>
+
+  {% if client_list %}
+    <table class="table">
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Address</th>
+      </tr>
+      {% for client in client_list %}
+        <tr>
+          <td>
+            {{ client.id }}
+          </td>
+          <td>
+            {{ client.client_name }}
+          </td>
+          <td>
+            {{ client.client_address }}
+          </td>
+        </tr>
+      {% endfor %}
+    </table>
+  {% else %}
+    <p>There are no clients in the service.</p>
+  {% endif %}
+{% endblock %}

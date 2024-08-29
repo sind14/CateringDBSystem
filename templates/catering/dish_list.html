@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>
+    Dish List
+    <a href="{% url 'catering_app:dish_create' %}" class="btn btn-primary link-to-page">
+      Create Position
+    </a>
+  </h1>
+
+  {% if dish_list %}
+    <table class="table">
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Price</th>
+        <th>Update</th>
+        <th>Delete</th>
+      </tr>
+
+      {% for dish in dish_list %}
+        <tr>
+          <td>
+            {{ dish.id }}
+          </td>
+          <td>
+            {{ dish.dish_name }}
+          </td>
+          <td>
+            {{ dish.price }}$
+          </td>
+          <td>
+            <a href="{% url 'catering_app:dish_update' pk=dish.id %}">Update</a>
+          </td>
+        </tr>
+      {% endfor %}
+    </table>
+
+  {% else %}
+    <p>There are no dishes in the service.</p>
+  {% endif %}
+{% endblock %}
