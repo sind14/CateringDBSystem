@@ -11,6 +11,8 @@ from catering_app.views import (
     OrderListView,
     OrderCreateView,
     DishUpdateView,
+    MenuUpdateView,
+    MenuDeleteView,
 )
 
 app_name = "catering_app"
@@ -22,6 +24,8 @@ urlpatterns = [
     path("dishes/<int:pk>/update", DishUpdateView.as_view(), name="dish_update"),
     path("menus", MenuListView.as_view(), name="menu_list"),
     path("menus/create/", MenuCreateView.as_view(), name="menu_create"),
+    path("menus/<int:pk>/update/", MenuUpdateView.as_view(), name="menu_update"),
+    path("menus/<int:pk>/delete/", MenuDeleteView.as_view(), name="menu_delete"),
     path("menus/<int:pk>/", MenuDetailView.as_view(), name="menu_detail"),
     path("clients", ClientListView.as_view(), name="client_list"),
     path("clients/create/", ClientCreateView.as_view(), name="client_create"),

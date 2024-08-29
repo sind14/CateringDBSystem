@@ -7,11 +7,18 @@
   </h3>
   <hr>
   <ul>
-    {% for dish in menu.dishes.all %}
+    {% for dish in menu.menu_dishes.all %}
       <li>{{ dish.dish_name }} : {{ dish.price }}$</li>
     {% endfor %}
   </ul>
   <p>
     Total price: {{ menu.total_price| floatformat:2 }}$ per person
+  <p>
+    <a href="{% url "catering_app:menu_update" pk=menu.id %}" class="btn btn-primary">
+      Update
+    </a>
+    <a href="{% url "catering_app:menu_delete" pk=menu.id %}" class="btn btn-danger">
+      Delete
+    </a>
   </p>
 {% endblock %}

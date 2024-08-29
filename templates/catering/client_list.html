@@ -11,15 +11,11 @@
   {% if client_list %}
     <table class="table">
       <tr>
-        <th>ID</th>
         <th>Name</th>
         <th>Address</th>
       </tr>
       {% for client in client_list %}
         <tr>
-          <td>
-            {{ client.id }}
-          </td>
           <td>
             {{ client.client_name }}
           </td>
