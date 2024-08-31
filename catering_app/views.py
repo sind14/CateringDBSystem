@@ -26,11 +26,13 @@ def index(request):
     clients_num = Client.objects.count()
     dishes_num = Dish.objects.count()
     menus_num = Menu.objects.count()
+    orders_num = SavedOrder.objects.count()
 
     context = {
         "clients_num": clients_num,
         "dishes_num": dishes_num,
         "menus_num": menus_num,
+        "orders_num": orders_num,
     }
 
     return render(request, "catering/index.html", context=context)

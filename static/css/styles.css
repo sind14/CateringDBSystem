@@ -1,20 +1,62 @@
 body {
-    margin-top: 20px;
+  background: linear-gradient(to right, #e9f5f9, #003366);
+  margin-top: 20px;
 }
 
-.link-to-page {
-    float: right;
-    margin: 0 2px 0 2px;
+
+.container-fluid {
+  background: linear-gradient(to right, #e9f5f9, #003366);
 }
 
-#logout-form {
-  display: inline;
+/* Фон карток */
+.card {
+  background-color: #343a40;
+  color: #ffffff;
 }
 
-#logout-form button {
-  background: none;
-  border: none;
-  cursor: pointer;
-  padding: 0;
-  text-decoration: underline;
+
+.card-header {
+  background-color: #495057;
+  color: #ffffff;
 }
+
+
+.btn-primary {
+  background-color: #003366;
+  border-color: #003366;
+}
+
+.btn-primary:hover {
+  background-color: #002244;
+  border-color: #002244;
+}
+
+.btn-success {
+  background-color: #20c997;
+  border-color: #20c997;
+}
+
+.btn-success:hover {
+  background-color: #17a589;
+  border-color: #17a589;
+}
+
+
+.pagination {
+  justify-content: center;
+}
+
+.page-item.active .page-link {
+  background-color: #003366;
+  border-color: #003366;
+}
+
+.page-link {
+  color: #003366;
+}
+
+.page-link:hover {
+  background-color: #e9ecef;
+  color: #003366;
+}
+
