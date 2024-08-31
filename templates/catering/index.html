@@ -1,10 +1,100 @@
 {% extends "base.html" %}
 
 {% block content %}
-  <h1>Catering Home</h1>
-  <ul>
-    <li><strong>Clients:</strong> {{ clients_num }}</li>
-    <li><strong>Dishes:</strong> {{ dishes_num }}</li>
-    <li><strong>Menus:</strong> {{ menus_num }}</li>
-  </ul>
+<div class="container mt-4">
+  <!-- Головний заголовок -->
+  <div class="card bg-dark text-light mb-4">
+    <div class="card-header">
+      <h1><i class="fas fa-home"></i> Welcome to Catering Home</h1>
+    </div>
+    <div class="card-body">
+      <p>Welcome to your catering management dashboard. Here you can keep track of your clients, dishes, menus, and orders. Use the sections below to quickly access and manage your data.</p>
+    </div>
+  </div>
+
+  <!-- Рядок з картками -->
+  <div class="row">
+    <!-- Секція Клієнтів -->
+    <div class="col-md-4">
+      <div class="card bg-dark text-light mb-4 d-flex flex-column" style="height: 250px;">
+        <div class="card-header">
+          <h5><i class="fas fa-users"></i> Total Clients: {{ clients_num }}</h5>
+        </div>
+        <div class="card-body">
+          <p>Manage all your clients in one place. View their details, update information, or add new clients as your business grows.</p>
+        </div>
+        <div class="d-flex justify-content-center mt-auto mb-3">
+          <a href="{% url 'catering_app:client_list' %}" class="btn btn-primary mx-2"><i class="fas fa-eye"></i> View Clients</a>
+          <a href="{% url 'catering_app:client_create' %}" class="btn btn-success mx-2"><i class="fas fa-user-plus"></i> Add New Client</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Секція Страв -->
+    <div class="col-md-4">
+      <div class="card bg-dark text-light mb-4 d-flex flex-column" style="height: 250px;">
+        <div class="card-header">
+          <h5><i class="fas fa-utensils"></i> Total Dishes: {{ dishes_num }}</h5>
+        </div>
+        <div class="card-body">
+          <p>Keep your menu up-to-date by managing your dishes. Add new dishes or edit existing ones.</p>
+        </div>
+        <div class="d-flex justify-content-center mt-auto mb-3">
+          <a href="{% url 'catering_app:dish_list' %}" class="btn btn-primary mx-2"><i class="fas fa-eye"></i> View Dishes</a>
+          <a href="{% url 'catering_app:dish_create' %}" class="btn btn-success mx-2"><i class="fas fa-utensils"></i> Add New Dish</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Секція Меню -->
+    <div class="col-md-4">
+      <div class="card bg-dark text-light mb-4 d-flex flex-column" style="height: 250px;">
+        <div class="card-header">
+          <h5><i class="fas fa-concierge-bell"></i> Total Menus: {{ menus_num }}</h5>
+        </div>
+        <div class="card-body">
+          <p>Curate the perfect menus for your clients. Here you can create new menus or modify existing ones to match the occasion.</p>
+        </div>
+        <div class="d-flex justify-content-center mt-auto mb-3">
+          <a href="{% url 'catering_app:menu_list' %}" class="btn btn-primary mx-2"><i class="fas fa-eye"></i> View Menus</a>
+          <a href="{% url 'catering_app:menu_create' %}" class="btn btn-success mx-2"><i class="fas fa-concierge-bell"></i> Add New Menu</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Другий рядок з картками -->
+  <div class="row">
+    <!-- Секція Замовлень -->
+    <div class="col-md-4">
+      <div class="card bg-dark text-light mb-4 d-flex flex-column" style="height: 250px;">
+        <div class="card-header">
+          <h5><i class="fas fa-receipt"></i> Orders: {{ orders_num }}</h5>
+        </div>
+        <div class="card-body">
+          <p>Track your orders efficiently. Review past orders, check ongoing orders, and make sure everything is delivered on time.</p>
+        </div>
+        <div class="d-flex justify-content-center mt-auto mb-3">
+          <a href="{% url 'catering_app:order_list' %}" class="btn btn-primary mx-2"><i class="fas fa-eye"></i> View Orders</a>
+          <a href="{% url 'catering_app:order_create' %}" class="btn btn-success mx-2"><i class="fas fa-plus"></i> Add New Order</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Місце для майбутніх секцій або додаткової інформації -->
+    <div class="col-md-4">
+      <div class="card bg-dark text-light mb-4 d-flex flex-column" style="height: 250px;">
+        <div class="card-header">
+          <h5><i class="fas fa-info-circle"></i> Additional Info</h5>
+        </div>
+        <div class="card-body">
+          <p>Use this section for any additional information or links that might be useful for managing your catering business.</p>
+        </div>
+        <div class="d-flex justify-content-center mt-auto mb-3">
+          <a href="#" class="btn btn-primary mx-2"><i class="fas fa-cogs"></i> Manage Settings</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 {% endblock %}
