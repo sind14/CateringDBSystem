@@ -7,11 +7,10 @@
       Create Position
     </a>
   </h1>
-
+  {% include "includes/search_form.html" %}
   {% if dish_list %}
     <table class="table">
       <tr>
-        <th>ID</th>
         <th>Name</th>
         <th>Price</th>
         <th>Update</th>
@@ -21,16 +20,16 @@
       {% for dish in dish_list %}
         <tr>
           <td>
-            {{ dish.id }}
-          </td>
-          <td>
             {{ dish.dish_name }}
           </td>
           <td>
             {{ dish.price }}$
           </td>
           <td>
-            <a href="{% url 'catering_app:dish_update' pk=dish.id %}">Update</a>
+            <a href="{% url 'catering_app:dish_update' pk=dish.id %}" class="btn btn-primary">Update</a>
+          </td>
+          <td>
+            <a href="{% url 'catering_app:dish_delete' pk=dish.id %}" class="btn btn-danger">Delete</a>
           </td>
         </tr>
       {% endfor %}

@@ -1,7 +1,13 @@
+from django.contrib.auth.models import AbstractUser
 from django.db import models
 from django.db.models import Sum
 from django.db.models.signals import post_save
 from django.dispatch import receiver
+
+
+class User(AbstractUser):
+    def __str__(self):
+        return f"{self.username}: {self.first_name} {self.last_name}"
 
 
 class Client(models.Model):
@@ -34,6 +40,9 @@ class SavedOrder(models.Model):
     order_menu = models.ForeignKey(SavedMenu, related_name="saved_orders", on_delete=models.CASCADE)
     client = models.ForeignKey(Client, related_name="saved_orders", on_delete=models.CASCADE)
     order_date = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        ordering = ('-order_date',)
 
     @property
     def total_price(self):
