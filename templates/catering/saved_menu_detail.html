@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>Menu:{{ savedmenu.menu_name }}</h1>
+  <h3>
+    Dishes
+  </h3>
+  <hr>
+  <ul>
+    {% for dish in savedmenu.menu_dishes.all %}
+      <li>{{ dish.dish_name }} : {{ dish.price }}$</li>
+    {% endfor %}
+  </ul>
+  <p>
+    Total price: {{ savedmenu.total_price| floatformat:2 }}$ per person
+  </p>
+{% endblock %}
