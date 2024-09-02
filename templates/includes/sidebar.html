@@ -12,7 +12,7 @@
     </li>
   {% else %}
     <li class="list-group-item bg-dark text-light">
-      <a href="{% url 'login' %}?next={{ request.path }}" class="text-light"><i class="fas fa-sign-in-alt"></i> Login</a>
+      <a href="{% url 'login' %}" class="text-light"><i class="fas fa-sign-in-alt"></i> Login</a>
     </li>
   {% endif %}
 
