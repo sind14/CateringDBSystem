@@ -6,8 +6,7 @@ from django.dispatch import receiver
 
 
 class User(AbstractUser):
-    def __str__(self):
-        return f"{self.username}: {self.first_name} {self.last_name}"
+    pass
 
 
 class Client(models.Model):
@@ -48,9 +47,6 @@ class SavedOrder(models.Model):
     def total_price(self):
         return self.order_menu.total_price * self.num_people
 
-    def __str__(self):
-        return f"Order {self.id} by {self.client.client_name}"
-
 
 class Dish(models.Model):
     dish_name = models.CharField(max_length=100)
@@ -77,10 +73,6 @@ class Order(models.Model):
     order_menu = models.ForeignKey(Menu, related_name="orders", on_delete=models.CASCADE)
     client = models.ForeignKey(Client, related_name="orders", on_delete=models.CASCADE)
     order_date = models.DateTimeField(auto_now_add=True)
-
-    @property
-    def total_price(self):
-        return self.order_menu.total_price * self.num_people
 
 
 @receiver(post_save, sender=Order)
