@@ -25,6 +25,6 @@ python manage.py runserver # starts Django Server
 * Managing dishes in menus & clients with orders directly from website interface 
 * Powerful admin panel for advanced managing
 
-## Demo
+## Diagram
 
 ![Website Diagram](diagram.png)
