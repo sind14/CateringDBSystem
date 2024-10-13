@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container mt-4">
+  <div class="card bg-dark text-light mb-4">
+    <div class="card-header">
+      <h1 class="mb-0">Menu: {{ savedmenu.menu_name }}</h1>
+    </div>
+    <div class="card-body">
+      <h3 class="mb-3">Dishes</h3>
+      <ul class="list-group list-group-flush">
+        {% for dish in savedmenu.menu_dishes.all %}
+          <li class="list-group-item bg-dark text-light">
+            {{ dish.dish_name }} : {{ dish.price }}$
+          </li>
+        {% endfor %}
+      </ul>
+      <hr>
+      <p class="mt-3">
+        <strong>Total price:</strong> {{ savedmenu.total_price|floatformat:2 }}$ per person
+      </p>
+    </div>
+  </div>
+</div>
+{% endblock %}
