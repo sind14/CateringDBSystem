@@ -5,6 +5,8 @@ Django project for managing clients and dishes in Catering
 ## Check it out!
 
 [Catering project deployed to Render] (https://cateringdbsystem.onrender.com/)
+login: user
+password: user12345
 
 ## Installation
 
